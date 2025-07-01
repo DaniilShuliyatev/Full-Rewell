@@ -1,103 +1,95 @@
+import ServicesGrid from "./ServicesGrid";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main>
+      <header id="main" className="w-full py-8 flex justify-center mt-20" style={{scrollMarginTop: '5rem'}}>
+        <h1 className="text-3xl md:text-5xl font-bold text-center" style={{ color: 'var(--accent)' }}>
+          Full-Rewell — быстро и качественно подготовит ваш товар для продажи на Маркетплейсах
+        </h1>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      <section className="max-w-2xl mx-auto px-4 py-8 text-center flex flex-col items-center mt-12" style={{minHeight: '550px'}}>
+        <h2 className="text-2xl md:text-3xl font-semibold mb-4">Почему выбирают нас?</h2>
+        <ul className="text-lg md:text-xl space-y-4 mb-8" style={{ color: 'var(--text)' }}>
+          <li className="flex flex-col items-center gap-2 mt-8">
+            <span className="mb-2"><Image src="/star-solid.svg" alt="Star" width={36} height={36}/></span>
+            <b>Улучшить качество обслуживания клиентов</b>
+            Мы обеспечиваем более высокий уровень обслуживания клиентов, что улучшает репутацию магазина и повышает лояльность клиентов.
+          </li>
+          <li className="flex flex-col items-center gap-2 mt-8">
+            <span className="mb-2"><Image src="/clock-solid.svg" alt="Star" width={36} height={36}/></span>
+            <b>Экономить время и ресурсы</b>
+            Фулфилмент берёт на себя многие аспекты управления инвентаризацией, упаковки и доставки товаров. Это освобождает время и ресурсы для других важных задач, таких как маркетинг и продвижение продукта.
+          </li>
+          <li className="flex flex-col items-center gap-2 mt-8">
+            <span className="mb-2"><Image src="/truck-fast-solid.svg" alt="Star" width={36} height={36}/></span>
+            <b>Расширить географию и увеличить скорость доставки</b>
+            Мы поставляем товары в любые города и обеспечиваем быструю доставку благодаря опыту и ресурсам для управления процессом логистики.
+          </li>
+        </ul>
+      </section>
+
+      <section id="about" className="max-w-2xl mx-auto px-4 py-8 flex flex-col items-center" style={{minHeight: '550px', scrollMarginTop: '5rem'}}>
+        <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-center">О нас</h2>
+        <ul className="w-full flex flex-col gap-6">
+          <li className="flex items-start gap-4 bg-white/80 rounded-lg shadow p-4 border-l-4 border-[var(--accent)]">
+            <div>
+              <span className="font-semibold text-lg" style={{color: 'var(--accent)'}}>Открытая и честная коммуникация</span>
+              <p className="text-base mt-1">Мы всегда стремимся к открытому диалогу и созданию долгосрочных партнёрских отношений.</p>
+            </div>
+          </li>
+          <li className="flex items-start gap-4 bg-white/80 rounded-lg shadow p-4 border-l-4 border-[var(--accent)]">
+            <div>
+              <span className="font-semibold text-lg" style={{color: 'var(--accent)'}}>Профессионализм и опыт</span>
+              <p className="text-base mt-1">Наша команда работает в сфере фулфилмента уже более трёх лет, пройдя путь от небольшого предприятия до крупного игрока на рынке.</p>
+            </div>
+          </li>
+          <li className="flex items-start gap-4 bg-white/80 rounded-lg shadow p-4 border-l-4 border-[var(--accent)]">
+            <div>
+              <span className="font-semibold text-lg" style={{color: 'var(--accent)'}}>Высокое качество услуг</span>
+              <p className="text-base mt-1">Наша основная задача — предоставлять клиентам высококачественные услуги по организации и управлению логистическими процессами.</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="services" className="max-w-2xl mx-auto px-4 py-8 flex flex-col items-center" style={{minHeight: '550px', scrollMarginTop: '5rem'}}>
+        <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-center">Услуги</h2>
+        <ServicesGrid />
+        <p className="text-lg md:text-xl text-center mt-12">
+          Также у нас есть большое количество дополнительных услуг. Для получения подробной информации вы можете связаться с нами удобным для вас способом.
+        </p>
+      </section>
+
+      <section id="contact" className="max-w-xl mx-auto px-4 py-8 text-center flex flex-col items-center justify-center" style={{minHeight: '550px', scrollMarginTop: '5rem'}}>
+        <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-center">Обратная связь</h2>
+        <p className="text-lg md:text-xl text-center mb-4">
+          Для получения дополнительной информации воспользуйтесь формой обратной связи на сайте.
+        </p>
+        <form className="flex flex-col gap-4 items-center bg-white p-6 rounded-lg shadow-md border border-gray-100 w-full max-w-md" style={{ background: 'var(--background)' }}>
+          <label htmlFor="phone" className="sr-only">Телефон</label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            required
+            placeholder="Ваш номер телефона"
+            className="w-full px-4 py-2 border border-gray-200 rounded focus:outline-none focus:border-[var(--accent)] text-black"
+          />
+          <button
+            type="submit"
+            className="w-full py-2 px-4 rounded bg-[var(--accent)] text-white font-semibold transition hover:opacity-90 focus:outline-none"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+            Отправить
+          </button>
+        </form>
+      </section>
+
+      <footer className="w-full py-6 flex justify-center mt-12 border-t border-gray-100">
+        <small className="text-xs text-gray-500">&copy; {new Date().getFullYear()} Full-Rewell. Все права защищены.</small>
       </footer>
-    </div>
+    </main>
   );
 }
