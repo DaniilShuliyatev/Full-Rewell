@@ -32,7 +32,7 @@ const services = [
 export default function ServicesGrid() {
   return (
     <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 mt-2 py-2">
-      {services.map((service, idx) => (
+      {services.map((service) => (
         <div
           key={service.title}
           className="flex flex-col items-center text-center transition-transform duration-200 hover:scale-105 cursor-pointer w-full p-6 bg-black/70 rounded-lg shadow text-white"

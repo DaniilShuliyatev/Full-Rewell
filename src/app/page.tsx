@@ -49,7 +49,7 @@ export default function Home() {
           ];
           return (
             <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full mb-4 text-base md:text-xl" style={{ color: 'var(--text)' }}>
-              {reasons.map((item, idx) => (
+              {reasons.map((item) => (
                 <li
                   key={item.title}
                   className="flex flex-col items-center text-center gap-4 p-6 w-full min-w-0 bg-black/70 rounded-lg shadow text-white"

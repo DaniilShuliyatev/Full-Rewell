@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const NAVBAR_HEIGHT = 65;
 const SCROLL_MARGIN_TOP = 90;
 
 export default function Navbar() {
