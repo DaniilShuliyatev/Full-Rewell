@@ -3,16 +3,10 @@ import ServicesGrid from "./ServicesGrid";
 import Image from "next/image";
 import PromoModal from "./PromoModal";
 import { useEffect, useState } from "react";
-import emailjs from 'emailjs-com';
 import ContactForm from "./ContactForm";
 
 export default function Home() {
   const [aboutInView, setAboutInView] = useState(false);
-  const [method, setMethod] = useState<'whatsapp' | 'telegram'>('whatsapp');
-  const [value, setValue] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState('');
 
   useEffect(() => {
     const aboutSection = document.getElementById("about");
@@ -27,34 +21,6 @@ export default function Home() {
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const isValid = method === 'whatsapp'
-    ? /^\+?[0-9\s-]{10,20}$/.test(value.trim())
-    : /^@[a-zA-Z0-9_]{4,}$/.test(value.trim());
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setError('');
-    setSuccess(false);
-    try {
-      await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
-        {
-          method: method === 'whatsapp' ? 'WhatsApp' : 'Telegram',
-          value,
-        },
-        'YOUR_USER_ID'
-      );
-      setSuccess(true);
-      setValue('');
-    } catch (err) {
-      setError('Ошибка отправки. Попробуйте позже.');
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
     <main>

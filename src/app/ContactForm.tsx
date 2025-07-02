@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function ContactForm() {
   const [method, setMethod] = useState<'whatsapp' | 'telegram'>('whatsapp');
@@ -35,7 +36,7 @@ export default function ContactForm() {
       } else {
         setError('Ошибка отправки. Попробуйте позже.');
       }
-    } catch (err) {
+    } catch {
       setError('Ошибка отправки. Попробуйте позже.');
     } finally {
       setLoading(false);
@@ -47,12 +48,12 @@ export default function ContactForm() {
       <div className="flex gap-4 w-full justify-center mb-2">
         <label className="flex items-center gap-1 cursor-pointer">
           <input type="radio" name="method" value="whatsapp" checked={method === 'whatsapp'} onChange={() => { setMethod('whatsapp'); setValue(''); }} />
-          <img src="/whatsapp.svg" alt="WhatsApp" className="w-9 h-9" />
+          <Image src="/whatsapp.svg" alt="WhatsApp" width={36} height={36} className="w-9 h-9" />
           <span className="text-base">WhatsApp</span>
         </label>
         <label className="flex items-center gap-1 cursor-pointer">
           <input type="radio" name="method" value="telegram" checked={method === 'telegram'} onChange={() => { setMethod('telegram'); setValue(''); }} />
-          <img src="/telegram.svg" alt="Telegram" className="w-7 h-7" />
+          <Image src="/telegram.svg" alt="Telegram" width={36} height={36} className="w-9 h-9" />
           <span className="text-base">Telegram</span>
         </label>
       </div>
