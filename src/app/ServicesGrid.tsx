@@ -35,12 +35,12 @@ export default function ServicesGrid() {
       {services.map((service) => (
         <div
           key={service.title}
-          className="flex flex-col items-center text-center transition-transform duration-200 hover:scale-105 cursor-pointer w-full p-6 bg-black/70 rounded-lg shadow text-white"
+          className="flex flex-col items-center text-center transition-transform duration-200 hover:scale-105 cursor-pointer w-full p-8 gap-6 bg-black/90 rounded-xl shadow-lg shadow-black/40 backdrop-blur-sm text-white"
           onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
         >
           <Image src={service.icon} alt={service.title} width={56} height={56} className="mb-2" />
-          <span className="font-semibold text-xl md:text-2xl mb-2">{service.title}</span>
-          <span className="text-lg md:text-xl text-white">{service.desc}</span>
+          <span className="font-semibold text-xl md:text-2xl mb-2 text-white">{service.title}</span>
+          <span className="text-lg md:text-xl font-medium leading-relaxed text-white">{service.desc}</span>
         </div>
       ))}
     </div>

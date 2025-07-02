@@ -1,10 +1,19 @@
 "use client";
 import ServicesGrid from "./ServicesGrid";
 import Image from "next/image";
+import PromoModal from "./PromoModal";
 import { useEffect, useState } from "react";
+import emailjs from 'emailjs-com';
+import ContactForm from "./ContactForm";
 
 export default function Home() {
   const [aboutInView, setAboutInView] = useState(false);
+  const [method, setMethod] = useState<'whatsapp' | 'telegram'>('whatsapp');
+  const [value, setValue] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
+
   useEffect(() => {
     const aboutSection = document.getElementById("about");
     if (!aboutSection) return;
@@ -19,6 +28,34 @@ export default function Home() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const isValid = method === 'whatsapp'
+    ? /^\+?[0-9\s-]{10,20}$/.test(value.trim())
+    : /^@[a-zA-Z0-9_]{4,}$/.test(value.trim());
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+    setSuccess(false);
+    try {
+      await emailjs.send(
+        'YOUR_SERVICE_ID',
+        'YOUR_TEMPLATE_ID',
+        {
+          method: method === 'whatsapp' ? 'WhatsApp' : 'Telegram',
+          value,
+        },
+        'YOUR_USER_ID'
+      );
+      setSuccess(true);
+      setValue('');
+    } catch (err) {
+      setError('Ошибка отправки. Попробуйте позже.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <main>
       <header id="main" className="max-w-6xl mx-auto w-full py-8 flex justify-center mt-20 scroll-m-20 px-2 sm:px-4 min-w-0">
@@ -28,7 +65,7 @@ export default function Home() {
       </header>
 
       <section className="mx-auto px-2 sm:px-4 py-6 text-center flex flex-col items-center min-h-[400px] min-w-0 w-full">
-        <h2 className="text-2xl md:text-4xl font-semibold mb-6 break-words">Почему выбирают нас?</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 break-words text-white drop-shadow">Почему выбирают нас?</h2>
         {(() => {
           const reasons = [
             {
@@ -48,15 +85,15 @@ export default function Home() {
             },
           ];
           return (
-            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full mb-4 text-base md:text-xl" style={{ color: 'var(--text)' }}>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full mb-6 text-base md:text-xl">
               {reasons.map((item) => (
                 <li
                   key={item.title}
-                  className="flex flex-col items-center text-center gap-4 p-6 w-full min-w-0 bg-black/70 rounded-lg shadow text-white"
+                  className="flex flex-col items-center text-center gap-6 p-8 w-full min-w-0 bg-black/90 rounded-xl shadow-lg shadow-black/40 backdrop-blur-sm text-white"
                 >
-                  <span className="mb-2"><Image src={item.icon} alt="Star" width={40} height={40} className="max-w-full h-auto"/></span>
-                  <b className="text-lg md:text-2xl leading-tight w-full text-center break-words">{item.title}</b>
-                  <span className="text-base md:text-xl leading-snug w-full text-center break-words">{item.desc}</span>
+                  <span className="mb-2"><Image src={item.icon} alt="Star" width={44} height={44} className="max-w-full h-auto"/></span>
+                  <b className="text-xl md:text-2xl font-semibold leading-tight w-full text-center break-words text-white">{item.title}</b>
+                  <span className="text-lg md:text-xl font-medium leading-relaxed w-full text-center break-words text-white">{item.desc}</span>
                 </li>
               ))}
             </ul>
@@ -125,28 +162,13 @@ export default function Home() {
         <p className="text-base md:text-xl text-center mb-4 break-words">
           Для получения дополнительной информации воспользуйтесь формой обратной связи.
         </p>
-        <form className="flex flex-col gap-4 items-center bg-white p-4 sm:p-6 rounded-lg shadow-md border border-gray-100 w-full max-w-md" style={{ background: 'var(--background)' }}>
-          <label htmlFor="phone" className="sr-only">Телефон</label>
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            required
-            placeholder="Ваш номер телефона"
-            className="w-full px-3 py-2 border border-gray-200 rounded focus:outline-none focus:border-[var(--accent)] text-black text-base break-words"
-          />
-          <button
-            type="submit"
-            className="w-full py-2 px-4 rounded bg-[var(--accent)] text-white font-semibold transition hover:opacity-90 focus:outline-none text-base"
-          >
-            Отправить
-          </button>
-        </form>
+        <ContactForm />
       </section>
 
       <footer className="w-full py-6 flex justify-center mt-8 border-t border-gray-100 px-2 sm:px-4 min-w-0">
         <small className="text-xs text-white break-words">&copy; {new Date().getFullYear()} Full-Rewell. Все права защищены.</small>
       </footer>
+      <PromoModal />
     </main>
   );
 }
