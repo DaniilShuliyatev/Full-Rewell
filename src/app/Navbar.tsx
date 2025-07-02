@@ -51,7 +51,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white/90 border-b border-gray-100 shadow-sm backdrop-blur flex items-center justify-between min-h-[56px] px-2 sm:px-4">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white/90 border-b border-gray-100 shadow-sm backdrop-blur flex items-center justify-between min-h-[56px] px-2 sm:px-4 font-sans">
       <a href="#main" className="flex items-center gap-2 px-2 py-1" onClick={handleNavClick("main")}> 
         <div className="h-[32px] w-[80px] sm:h-[40px] sm:w-[100px] overflow-hidden flex items-center">
           <Image src="/logo.svg" alt="Full-Rewell" width={100} height={100} className="max-w-full h-auto" />

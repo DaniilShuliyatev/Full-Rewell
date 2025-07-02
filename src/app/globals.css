@@ -4,14 +4,13 @@
   --accent: #ff5c33;
   --background: #fff;
   --text: #fff;
-  --font-serif: 'Playfair Display', 'Merriweather', serif;
   --font-sans: 'Inter', 'Arial', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
 body {
   /* background: var(--background); */
   color: var(--text);
-  font-family: var(--font-serif);
+  font-family: 'Inter', 'Arial', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   background-image: url('/bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -23,7 +22,7 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: var(--font-serif);
+  font-family: 'Playfair Display', 'Merriweather', serif;
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: 0.01em;
@@ -35,7 +34,6 @@ main, header, section, footer, form {
 }
 
 p, li, span, input, button, label {
-  font-family: var(--font-serif);
   line-height: 1.6;
   letter-spacing: 0.01em;
 }
