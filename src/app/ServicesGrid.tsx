@@ -31,19 +31,16 @@ const services = [
 
 export default function ServicesGrid() {
   return (
-    <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-10 mt-8">
+    <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 mt-2 py-2">
       {services.map((service, idx) => (
         <div
           key={service.title}
-          className={
-            `flex flex-col items-center text-center transition-transform duration-200 hover:scale-105 cursor-pointer` +
-            (idx === 4 ? " sm:col-span-2 sm:justify-self-center" : "")
-          }
+          className="flex flex-col items-center text-center transition-transform duration-200 hover:scale-105 cursor-pointer w-full p-6 bg-black/70 rounded-lg shadow text-white"
           onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
         >
-          <Image src={service.icon} alt={service.title} width={40} height={40} className="mb-3" />
-          <span className="font-semibold text-xl mb-2">{service.title}</span>
-          <span className="text-base md:text-lg text-gray-700">{service.desc}</span>
+          <Image src={service.icon} alt={service.title} width={56} height={56} className="mb-2" />
+          <span className="font-semibold text-xl md:text-2xl mb-2">{service.title}</span>
+          <span className="text-lg md:text-xl text-white">{service.desc}</span>
         </div>
       ))}
     </div>

@@ -37,7 +37,7 @@ export default function RootLayout({
       </head>
       <body>
         <Navbar />
-        <div style={{paddingLeft: '20%', paddingRight: '20%'}} className="pt-20">
+        <div className="pt-20 md:pt-28 px-2 md:px-8 lg:px-16">
           {children}
         </div>
       </body>
