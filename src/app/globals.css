@@ -8,13 +8,13 @@
 }
 
 body {
-  /* background: var(--background); */
+  background: #18181b;
   color: var(--text);
   font-family: 'Inter', 'Arial', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  background-image: url('/bg.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  /* background-image: url('/bg.jpg'); */
+  /* background-size: cover; */
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
   height: 100vh;
   background-attachment: fixed;
   -webkit-font-smoothing: antialiased;

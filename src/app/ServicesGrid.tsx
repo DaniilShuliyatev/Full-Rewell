@@ -35,7 +35,7 @@ export default function ServicesGrid() {
       {services.map((service) => (
         <div
           key={service.title}
-          className="flex flex-col items-center text-center transition-transform duration-200 hover:scale-105 cursor-pointer w-full p-8 gap-6 bg-black/90 rounded-xl shadow-lg shadow-black/40 backdrop-blur-sm text-white"
+          className="flex flex-col items-center text-center transition-transform duration-200 hover:scale-105 cursor-pointer w-full p-8 gap-6 bg-gradient-to-br from-[#23272f]/90 via-[#18181b]/95 to-[#23272f]/90 border border-[var(--accent)]/30 rounded-xl shadow-lg shadow-black/40 backdrop-blur-md text-white"
           onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
         >
           <Image src={service.icon} alt={service.title} width={56} height={56} className="mb-2" />

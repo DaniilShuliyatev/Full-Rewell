@@ -5,6 +5,7 @@ export default function PromoModal() {
   const [open, setOpen] = useState(true);
   const [timeLeft, setTimeLeft] = useState(45 * 60);
   const [hydrated, setHydrated] = useState(false);
+  const [showClose, setShowClose] = useState(false);
 
   useEffect(() => {
     // Только на клиенте!
@@ -13,6 +14,9 @@ export default function PromoModal() {
       setTimeLeft(Number(saved));
     }
     setHydrated(true);
+    // Показать крестик через 5 секунд
+    const timer = setTimeout(() => setShowClose(true), 5000);
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -45,6 +49,16 @@ export default function PromoModal() {
 
   return (
     <div className="fixed z-[100] bottom-3 right-3 sm:bottom-6 sm:right-6 max-w-[95vw] sm:max-w-xs w-full bg-white rounded-2xl shadow-2xl border-2 border-[var(--accent)] flex flex-col items-center p-3 sm:p-6">
+      {showClose && (
+        <button
+          aria-label="Закрыть модалку"
+          onClick={() => setOpen(false)}
+          className="absolute top-2 right-2 text-gray-400 hover:text-black text-2xl font-bold cursor-pointer transition"
+          style={{lineHeight: 1}}
+        >
+          &times;
+        </button>
+      )}
       <div className="flex items-center gap-2 mb-2">
         <span className="text-xl sm:text-2xl">🔥</span>
         <span className="text-base sm:text-lg font-extrabold text-[var(--accent)] uppercase drop-shadow">ВНИМАНИЕ!</span>
