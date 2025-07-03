@@ -44,7 +44,8 @@ export default function AboutSection() {
         </li>
         <li className={`w-full min-h-[100px] flex items-center gap-6 bg-gradient-to-br from-[#23272f]/80 via-[#18181b]/90 to-[#23272f]/80 border-l-4 border-[var(--accent)]/60 rounded-lg shadow p-6 transition-all duration-700 ease-out text-white ${aboutInView ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'}`} style={{transitionDelay: '400ms'}}>
           <div className="flex justify-center w-full">
-            <span className="font-semibold text-lg text-white">Ближайшее расположение к Карго Садовод Южные ворота ТЯК</span>
+            <span className="font-semibold text-lg text-white">Ближайшее расположение к Рынкам и Карго:
+            Садовод, Южные ворота, Садовод</span>
           </div>
         </li>
         <li className={`w-full min-h-[100px] flex items-center gap-6 bg-gradient-to-br from-[#23272f]/80 via-[#18181b]/90 to-[#23272f]/80 border-l-4 border-[var(--accent)]/60 rounded-lg shadow p-6 transition-all duration-700 ease-out text-white ${aboutInView ? 'translate-x-0 opacity-100' : '-translate-x-12 opacity-0'}`} style={{transitionDelay: '500ms'}}>
