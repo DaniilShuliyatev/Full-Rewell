@@ -1,16 +1,25 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Soyuz Grotesk';
+  src: url('/SoyuzGroteskBold.ttf') format('truetype'),
+       url('/Soyuz_Grotesk_Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --accent: #ff5c33;
   --background: #fff;
   --text: #fff;
-  --font-sans: 'Inter', 'Arial', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  --font-sans: 'Soyuz Grotesk', 'Inter', 'Arial', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
 body {
   background: #18181b;
   color: var(--text);
-  font-family: 'Inter', 'Arial', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Soyuz Grotesk', 'Inter', 'Arial', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   /* background-image: url('/bg.jpg'); */
   /* background-size: cover; */
   /* background-repeat: no-repeat; */
