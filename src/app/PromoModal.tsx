@@ -63,7 +63,7 @@ export default function PromoModal() {
         <span className="text-xl sm:text-2xl">🔥</span>
         <span className="text-base sm:text-lg font-extrabold text-[var(--accent)] uppercase drop-shadow">ВНИМАНИЕ!</span>
       </div>
-      <div className="text-base sm:text-xl font-bold text-black mb-2 text-center">Только сегодня — <span className='text-[var(--accent)]'>эксклюзивная скидка!</span></div>
+      <div className="text-base sm:text-xl font-bold text-black mb-2 text-center">Только сегодня — <span className='text-[var(--accent)]'>эксклюзивная скидка на забор товара!</span></div>
       <div className="text-xs sm:text-base font-semibold text-red-600 mb-2 text-center uppercase">Осталось времени:</div>
       <div className="text-2xl sm:text-3xl font-mono font-bold text-[var(--accent)] mb-4 text-center">{min}:{sec}</div>
       <button
